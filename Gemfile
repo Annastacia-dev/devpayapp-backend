@@ -8,8 +8,6 @@ ruby '2.7.4'
 
 gem "sinatra", "~> 2.1"
 
-gem "sqlite3"
-
 gem "activerecord", "~> 6.1"
 
 gem "sinatra-activerecord"
@@ -23,9 +21,16 @@ gem "require_all"
 group :development do
     gem "faker", "~> 2.18"
 
+    gem "sqlite3"
+
     gem "rerun"
 
     gem 'pry'
+
+end
+
+group :production do
+    gem "pg"
 
 end
 
