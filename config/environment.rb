@@ -1,24 +1,20 @@
-require 'bundler/setup'
-Bundler.require
-configure :development do
- ENV['RACK_ENV'] ||= "development"
-require 'bundler/setup'
- Bundler.require(:default, ENV['RACK_ENV'])
-ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['RACK_ENV']}.sqlite"
- )
-end
+ENV['RACK_ENV'] ||= "development"
 
-configure :production do
- db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/db/production.sqlite3')
+require 'bundler/setup'
+Bundler.require(:default, ENV['RACK_ENV'])
 
- ActiveRecord::Base.establish_connection(
-   :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-   :host     => db.host,
-   :username => db.user,
-   :password => db.password,
-   :database => db.path[1..-1],
-   :encoding => 'utf8'
- )
+require_all 'app'
+
+configure :production, :development do
+    db = URI.parse(ENV['RACK_ENV'] ||
+    'sqlite3://localhost/db/development.sqlite3'
+    )
+    ActiveRecord::Base.establish_connection(
+        adapter: 'sqlite3',
+        host: db.host,
+        username: db.user,
+        password: db.password,
+        database: db.path[1..-1],
+        encoding: 'utf8'
+    )
 end
