@@ -18,7 +18,7 @@ gem "rake"
 
 gem "require_all"
 
-gem "sqlite3", :group => :development
+gem "sqlite3"
 
 group :development do
     gem "faker", "~> 2.18"
@@ -29,10 +29,7 @@ group :development do
 
 end
 
-
 gem "pg"
-
-
 
 gem "rack", "~> 2.2"
 
