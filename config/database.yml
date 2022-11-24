@@ -10,8 +10,8 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: <%= ENV['DATABASE_HOST'] %>
-  database: <%= ENV['DATABASE_NAME'] %>
+  host: localhost
+  database: myapp_development
   username: postgres
   password: 'dev4608'
 
