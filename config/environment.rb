@@ -7,10 +7,10 @@ require_all 'app'
 
 # configure :production, :development do
 #     db = URI.parse(ENV['RACK_ENV'] ||
-#     'sqlite3://localhost/db/development.sqlite3'
+#     'postgres://localhost/db/developers'
 #     )
 #     ActiveRecord::Base.establish_connection(
-#         adapter: 'sqlite3',
+#         adapter: 'postgresql',
 #         host: db.host,
 #         username: db.user,
 #         password: db.password,

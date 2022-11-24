@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_10_144142) do
+ActiveRecord::Schema.define(version: 2022_11_24_090210) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "phone_number"
+    t.bigint "phone_number"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_11_10_144142) do
     t.string "name"
     t.string "email"
     t.string "password"
-    t.integer "phone_number"
+    t.bigint "phone_number"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_11_10_144142) do
 
   create_table "invoices", force: :cascade do |t|
     t.integer "number"
-    t.integer "amount"
+    t.bigint "amount"
     t.datetime "date"
     t.datetime "due_date"
     t.boolean "paid"

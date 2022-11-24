@@ -38,7 +38,7 @@ end
 25.times do
     Invoice.create!(
         number: Faker::Number.number(digits: 4),
-        amount: Faker::Number.number(digits: 3),
+        amount: Faker::Number.number(digits: 5),
         date: Faker::Date.between(from: 2.years.ago, to: Date.today),
         due_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
         paid: Faker::Boolean.boolean,
